@@ -1,46 +1,45 @@
 <div class="container">
-  <div class="row">
-    <div class="cok-xs-6">
-      <h2><%= @user.name %>さんとのチャット</h2>
+    <div class="row">
+        <div class="col-xs-6">
+            <h2>CHAT WITH <%= @user.name %></h2>
 
-      <table class="message table">
-        <thead>
-          <tr>
-            <th style="text-align: left; font-size: 20px;"><%= current_user.name %></th>
-            <th style="text-align: right; font-size:20px;"><%= @user.name %></th>
-          </tr>
-        </thead>
-        <% @chats.each do |chat| %>
-          <% if chat.user_id == current_user.id %>
-          <tbody>
-            <tr>
-              <th>
-                <p style="text-align: left;"><%= chat.message %></p>
-              </th>
-              <th></th>
-            </tr>
-          <% else %>
-            <tr>
-              <th></th>
-              <th>
-                <p style="text-align: right;"><%= chat.message %></p>
-              </th>
-            </tr>
-          </tbody>
-          <% end %>
-        <% end %>
-      </table>
+            <table class="message">
+              <thead>
+                <tr>
+                  <th style="text-align: left; font-size: 20px;"><%= current_user.name %></th>
+                  <th style="text-align: right; font-size: 20px;"><%= @user.name %></th>
+                </tr>
+              </thead>
+              <% @chats.each do |chat| %>
+                <% if chat.user_id == current_user.id %>
+                <tbody>
+                  <tr>
+                    <th>
+                      <p style="text-align: left;"><%= chat.message %></p>
+                    </th>
+                    <th></th>
+                  </tr>
+                <% else %>
+                  <tr>
+                    <th></th>
+                    <th>
+                      <p style="text-align: right;"><%= chat.message %></p>
+                    </th>
+                  </tr>
+                </tbody>
+                <% end %>
+              <% end %>
+            </table>
 
-      <%= form_with model: @chat, remote: true do |f| %>
-        <%= f.text_field :message %>
-        <%= f.hidden_field :room_id %>
-        <%= f.submit "SEND", class:"btn btn-sm btn-success chat-btn" %>
-      <% end %>
+            <%= form_with model: @chat, remote: true do |f| %>
+              <%= f.text_field :message %>
+              <%= f.hidden_field :room_id %>
+              <%= f.submit "SEND", class:"btn btn-sm btn-success chat-btn" %>
+            <% end %>
+        </div>
     </div>
-  </div>
 </div>
 
-<!-- current_userと@userが一致sていない場合に'Begin Chat'を表示　-->
 <% if current_user != @user %>
   <%= link_to 'Begin Chat', chat_path(@user.id) %>
 <% end %>

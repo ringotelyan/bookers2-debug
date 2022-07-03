@@ -19,3 +19,11 @@
     "webpack-dev-server": "^4.8.1"
   }
 }
+
+{
+  # 省略
+  "dependencies": {
+    #省略
+    "chart.js": "^2.7.1" # ←ここに追記
+  }
+}

@@ -56,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'devise'
 
 gem 'impressionist'
+
+gem 'chart-js-rails', '~> 0.1.4'

@@ -12,18 +12,11 @@
     "popper.js": "^1.16.1",
     "turbolinks": "^5.2.0",
     "webpack": "^4.46.0",
-    "webpack-cli": "^3.3.12"
+    "webpack-cli": "^3.3.12",
+    "chart.js": "^2.7.1"
   },
   "version": "0.1.0",
   "devDependencies": {
     "webpack-dev-server": "^4.8.1"
-  }
-}
-
-{
-  # 省略
-  "dependencies": {
-    #省略
-    "chart.js": "^2.7.1" # ←ここに追記
   }
 }

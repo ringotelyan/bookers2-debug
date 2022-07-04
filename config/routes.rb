@@ -19,6 +19,6 @@ Rails.application.routes.draw do
   end
 
   resources :chats, only: [:show, :create]
-  resouces :groups, only: [:index, :show, :edit, :create, :update, :new, :show]
+  resources :groups, only: [:index, :show, :edit, :create, :update, :new, :show]
 
 end

@@ -1,6 +1,6 @@
 class Group < ApplicationRecord
   has_one_attached :image
-  belongs_to :owner, class_nmae: 'User'
+  belongs_to :owner, class_name: 'User'
   has_many :group_users, dependent: :destroy
 
   validates :name, presence: true

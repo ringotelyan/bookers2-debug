@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   end
 
   resources :chats, only: [:show, :create]
-  resources :groups, only: [:index, :show, :edit, :create, :update, :new, :show]
+  resources :groups, only: [:index, :show, :edit, :create, :update, :new, :show] do
+    get "join" => "groups#join"
+  end
 
 end

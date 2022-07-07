@@ -1,0 +1,2 @@
+class ExentNoticesController < ApplicationController
+end

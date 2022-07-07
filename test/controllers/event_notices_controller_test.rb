@@ -1,6 +1,6 @@
 require "test_helper"
 
-class ExentNoticesControllerTest < ActionDispatch::IntegrationTest
+class EventNoticesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

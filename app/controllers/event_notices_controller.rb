@@ -1,11 +1,11 @@
-class ExentNoticesController < ApplicationController
+class EventNoticesController < ApplicationController
 
   def new
     @group = Group.find(params[:group_id])
   end
 
   def create
-    @group = group.find(params[:group_id])
+    @group = Group.find(params[:group_id])
     @title = params[:title]
     @body = params[:body]
 
@@ -15,7 +15,7 @@ class ExentNoticesController < ApplicationController
       :body => @body
     }
 
-    EvenMailer.send_notifications_to_group(event)
+    EventMailer.send_notifications_to_group(event)
 
     render :sent
   end

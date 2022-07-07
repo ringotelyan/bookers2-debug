@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :groups, only: [:index, :show, :edit, :create, :update, :new, :show] do
     resource :group_users, only: [:create, :destroy]
     resources :event_notices, only:[:new, :create]
-    get "event_notices" => "evint_notices#sent"
+    get "event_notices" => "event_notices#sent"
   end
 
 end

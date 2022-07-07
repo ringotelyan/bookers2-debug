@@ -79,7 +79,7 @@ Rails.application.configure do
   config.hosts << "10be304a0930465ea866ed15968238bf.vfs.cloud9.us-east-1.amazonaws.com"
 
   config.action_mailer.delivery_method = :smtp
-  config.action_mailer.smtp_setteings = {
+  config.action_mailer.smtp_settings = {
     address: 'smtp.gmail.com',
     port: 587,
     domain: 'gmail.com',

@@ -77,4 +77,16 @@ Rails.application.configure do
   config.hosts << "9e51e2204d494445ab9d4eb3ca5af25c.vfs.cloud9.ap-northeast-1.amazonaws.com"
   config.hosts << "9e51e2204d494445ab9d4eb3ca5af25c.vfs.cloud9.ap-northeast-1.amazonaws.com"
   config.hosts << "10be304a0930465ea866ed15968238bf.vfs.cloud9.us-east-1.amazonaws.com"
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_setteings = {
+    address: 'smtp.gmail.com',
+    port: 587,
+    domain: 'gmail.com',
+    user_name: ENV['MAIL_ADDRESS'],
+    password: ENV['MAIL_PASSWORD'],
+    authentication: 'plain',
+    enable_starttls_auto: true
+  }
+
 end

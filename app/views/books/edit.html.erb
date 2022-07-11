@@ -4,7 +4,12 @@
   		<h1>Editing Book</h1>
   		<%= form_with model:@book, local:true do |f| %>
         <%= render 'layouts/errors', obj: @book %>
-    		<%= render 'form', book: @book %>
+    		<% if @book.is_draft == true %>
+    		  <%= f.submit "下書きを公開", :name => 'publicize_draft' %>
+    		  <%= f.submit "下書きを更新", :name => 'update_draft' %>
+    		<% else %>
+    		  <%= f.submit "更新", name: => 'update_book' %>
+    		<% end %>
     		<%= link_to 'Show', @book, class: "book_#{@book.id}" %> |
     		<%= link_to 'Back', books_path, class: "back" %>
   		<% end %>

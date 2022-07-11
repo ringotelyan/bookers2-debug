@@ -8,6 +8,7 @@
     <%= f.text_area :body, class: 'form-control book_body' %>
   </div>
   <div class="form-group">
-    <%= f.submit class: 'btn btn-success' %>
+    <%= f.submit '新規投稿', :name => 'book', class: 'btn btn-success' %>
+    <%= f.submit '下書き保存', :name => 'draft', class: 'btn btn-primary' %>
   </div>
 <% end %>

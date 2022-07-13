@@ -58,3 +58,5 @@ gem 'devise'
 gem 'impressionist'
 
 gem 'chart-js-rails', '~> 0.1.4'
+
+gem 'enum_help'

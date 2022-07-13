@@ -14,8 +14,10 @@ class Book < ApplicationRecord
   scope :created_this_week, -> { where(created_at: 6.day.ago.beginning_of_day..Time.zone.now.end_of_day) }
   scope :created_last_week, -> { where(created_at: 2.week.ago.beginning_of_day..1.week.ago.end_of_day) }
 
-  validates :title,presence:true
-  validates :body,presence:true,length:{maximum:200}
+  enum status: { published: 0, draft: 1 }
+
+  validates :title, presence: true
+  validates :body, presence: true, length:{maximum:200}
 
   is_impressionable counter_cache: true
 

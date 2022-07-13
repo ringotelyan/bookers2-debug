@@ -12,7 +12,8 @@ class BooksController < ApplicationController
   def index
     to = Time.current.at_end_of_day
     from = (to - 6.day).at_beginning_of_day
-    @books = Book.includes(:favorited_users).
+    books = Book.published
+    @books = books.includes(:favorited_users).
       sort {|a,b|
         b.favorited_users.includes(:favorites).where(created_at: from...to).size <=>
         a.favorited_users.includes(:favorites).where(created_at: from...to).size
@@ -52,10 +53,14 @@ class BooksController < ApplicationController
     redirect_to books_path, notice: "successfully delete book!"
   end
 
+  def confirm
+    @books = current_user.books.draft
+  end
+
   private
 
   def book_params
-    params.require(:book).permit(:title, :body)
+    params.require(:book).permit(:title, :body, :status)
   end
 
   def ensure_correct_user
